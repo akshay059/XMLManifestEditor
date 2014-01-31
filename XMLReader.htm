@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>EditManifest</title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="XMLReader/xmlreader.js"></script>
+    <style type="text/css">
+        table {
+            font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+            font-size: 12px;
+            background: #fff;
+            border-collapse: collapse;
+            text-align: left;
+            margin: 5px;
+        }
+
+        tr {
+            border-style: solid;
+            border-width: thin;
+        }
+
+        td {
+            color: #669;
+            padding: 1px 1px 0;
+            min-width: 100px;
+        }
+
+        .thumb {
+            height: 75px;
+            border: 1px solid #000;
+            margin: 10px 5px 0 0;
+        }
+
+        .editable {
+            max-width: 900px;
+            overflow: hidden;
+            color: red;
+        }
+
+        .attributes {
+            max-width: 900px;
+            overflow: hidden;
+            color: green;
+        }
+
+        .aloneroot {
+            font-weight: bold;
+        }
+
+        .saveButton {
+            display: inline;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+
+        .topControls {
+            display: inline;
+            padding: 3px;
+            margin: 1px;
+            border-style: solid;
+            border-width: thin;
+        }
+
+        .replaceVersion {
+            padding-left: 1px;
+            padding-right: 1px;
+            margin-left: 1px;
+            margin-right: 1px;
+            border-style: solid;
+            border-width: thin;
+        }
+
+        #viewFormCB {
+            padding-left: 1px;
+            padding-right: 1px;
+            margin-left: 1px;
+            margin-right: 1px;
+            border-style: solid;
+            border-width: thin;
+        }
+
+        #fileSelector {
+            height:20px;
+        }
+
+    </style>
+</head>
+<body>
+    <span id="selectXMLSource" class="topControls">Source : Server</span>
+    <span id="loadFromServerForm" class="topControls">Form to load data from Server</span>
+    <span id="fileSelectorForm" class="topControls"><input type="file" id="fileSelector" name="files" /></span>
+    <span id="viewFormCB" onclick="toggleForms()" class="topControls">Other Data</span>
+    <a class="saveButton" href="javascript:onDownload();">
+        <img src="images/download.png" /></a>
+    <a class="saveButton" href="javascript:onUpload();">
+        <img src="images/upload.png" /></a>
+    <a class="topControls" href="javascript:handleReplaceVersionAnchorClick();">Replace Version</a>
+    <span class="topControls" id="replaceVersionForm">Detected Versions :
+        <select id="detectedVersions"></select>
+        New Version Value :
+        <input id="replaceVersionTextBox" type="text" />
+        <input type="submit" value="Replace" id="replaceButton" />
+    </span>
+    <span class="topControls" id="resetTitleAndDescription">Reset Title and Description</span>
+    <div id="showContent"></div>
+    <div id="extra-data">
+        <table id="otherDataForm">
+            <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    <table id="title-description">
+        <tr>
+            <td>
+                <table id="displayNameForm">
+                    <thead>
+                        <tr>
+                            <th>Locale</th>
+                            <th>Title Value</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </td>
+            <td>
+                <table id="descriptionForm">
+                    <thead>
+                        <tr>
+                            <th>Locale</th>
+                            <th>Description Value</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <script type="text/javascript">
+        $('#fileSelector')[0].addEventListener('change', handleFileSelect, false);
+        $('#detectedVersions')[0].addEventListener('change', handleSelectionOnDetectedVersionsList, false)
+        $('#replaceButton')[0].addEventListener('click', handleReplaceButtonClick, false)
+        $('#resetTitleAndDescription')[0].addEventListener('click', handleTitleAndDescriptionReset, false)
+        $('#selectXMLSource')[0].addEventListener('click', handleSelectXMLSource, false)
+        $('#title-description')[0].style.display = "none";
+        $('#otherDataForm')[0].style.display = "none";
+        $('#replaceVersionForm')[0].style.display = "none";
+        $('#fileSelectorForm')[0].style.display = "none";
+    </script>
+</body>
+</html>
