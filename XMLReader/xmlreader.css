@@ -1,0 +1,77 @@
+table {
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+	font-size: 12px;
+	background: #fff;
+	border-collapse: collapse;
+	text-align: left;
+	margin: 5px;
+}
+
+tr {
+	border-style: solid;
+	border-width: thin;
+}
+
+td {
+	color: #669;
+	padding: 1px 1px 0;
+	min-width: 100px;
+}
+
+.thumb {
+	height: 75px;
+	border: 1px solid #000;
+	margin: 10px 5px 0 0;
+}
+
+.editable {
+	max-width: 900px;
+	overflow: hidden;
+	color: red;
+}
+
+.attributes {
+	max-width: 900px;
+	overflow: hidden;
+	color: green;
+}
+
+.aloneroot {
+	font-weight: bold;
+}
+
+.saveButton {
+	display: inline;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.topControls {
+	display: inline;
+	padding: 3px;
+	margin: 1px;
+	border-style: solid;
+	border-width: thin;
+}
+
+.replaceVersion {
+	padding-left: 1px;
+	padding-right: 1px;
+	margin-left: 1px;
+	margin-right: 1px;
+	border-style: solid;
+	border-width: thin;
+}
+
+#viewFormCB {
+	padding-left: 1px;
+	padding-right: 1px;
+	margin-left: 1px;
+	margin-right: 1px;
+	border-style: solid;
+	border-width: thin;
+}
+
+#fileSelector {
+	height:20px;
+}
